@@ -11,6 +11,7 @@ import DataPersistence
 
 class CreateController: UIViewController {
 
+    // MARK: Properties
     private var addNewCardView = AddNewCardView()
     public var dataPersistence: DataPersistence<FlashCard>!
     private var upperTextDidChange = false
@@ -31,6 +32,7 @@ class CreateController: UIViewController {
         
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -38,6 +40,7 @@ class CreateController: UIViewController {
         setUp()
     }
     
+    // MARK: Helper Methods
     private func setUp(){
         // Add Bar Button Items
         navigationItem.rightBarButtonItem = addNewCardView.rightBarButton
@@ -130,6 +133,7 @@ class CreateController: UIViewController {
     }
 }
 
+// MARK: TextFieldDelegate Methods
 extension CreateController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -142,6 +146,7 @@ extension CreateController: UITextFieldDelegate{
     }
 }
 
+// MARK: TextView Delegate Methods
 extension CreateController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView == addNewCardView.upperTextView && !upperTextDidChange{

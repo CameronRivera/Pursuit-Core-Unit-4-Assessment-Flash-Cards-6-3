@@ -13,7 +13,7 @@ protocol FlashCardCellDelegate: AnyObject{
 }
 
 class FlashCardCell: UICollectionViewCell {
-    
+    // MARK: Properties
     public weak var delegate: FlashCardCellDelegate?
     public var myIndex: Int = -1
     
@@ -30,11 +30,11 @@ class FlashCardCell: UICollectionViewCell {
         label.alpha = 1.0
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = "I am a purple Label who lived in a time when there were no other purple labels. As such, I was the first of my kind."
+        label.text = "I am a purple Label who lived in a time when there were no other purple labels. As such, I was the first of my kind. Mine is a lonely, yet fascinating story, or so I am told."
         label.backgroundColor = .orange
         return label
     }()
-    // CONSIDER CHANGING THIS TO SOMETHING THAT IS NOT A TEXT VIEW.
+    
     public lazy var factsView: UITextView = {
        let tv = UITextView()
         tv.alpha = 0.0
@@ -51,6 +51,7 @@ class FlashCardCell: UICollectionViewCell {
     
     private var textFieldIsShowing = false
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -70,6 +71,7 @@ class FlashCardCell: UICollectionViewCell {
         addGestureRecognizer(longPress)
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpOptionsButtonConstraints(){
         addSubview(optionsButton)
         optionsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -88,6 +90,7 @@ class FlashCardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([factsView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8), factsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8), factsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), factsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)])
     }
     
+    // MARK: Other Methods
     @objc
     private func buttonPressed(_ sender: UIButton){
         delegate?.optionsButtonPressed(self)

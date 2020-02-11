@@ -11,6 +11,7 @@ import DataPersistence
 
 class SearchController: UIViewController {
 
+    // MARK: Properties
     private var searchCardsView = SearchCardsView()
     public var dataPersistence: DataPersistence<FlashCard>!
     
@@ -26,6 +27,7 @@ class SearchController: UIViewController {
         view = searchCardsView
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -33,6 +35,7 @@ class SearchController: UIViewController {
         setUp()
     }
     
+    // MARK: Helper Methods
     private func setUp(){
         // Set delegate and datasource on collectionView
         searchCardsView.collectionView.dataSource = self
@@ -47,6 +50,7 @@ class SearchController: UIViewController {
 
 }
 
+// MARK: CollectionViewDataSource Methods
 extension SearchController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flashcards.count
@@ -63,6 +67,7 @@ extension SearchController: UICollectionViewDataSource{
     }
 }
 
+// MARK: CollectionViewDelegate Methods
 extension SearchController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.6)
@@ -73,6 +78,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout{
     }
 }
 
+// MARK: APIFlashCardCellDelegate Methods
 extension SearchController: APIFlashCardCellDelegate{
     func addButtonPressed(_ apiCell: APIFlashCardCell) {
         if !dataPersistence.hasItemBeenSaved(apiCell.currentCard){

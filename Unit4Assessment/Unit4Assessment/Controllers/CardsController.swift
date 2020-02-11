@@ -11,6 +11,7 @@ import DataPersistence
 
 class CardsController: UIViewController {
 
+    // MARK: Properties
     private var flashCardsView = FlashCardsView()
     private var flashcardArr: [FlashCard] = []{
         didSet{
@@ -28,6 +29,7 @@ class CardsController: UIViewController {
         view = flashCardsView
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -44,6 +46,7 @@ class CardsController: UIViewController {
         }
     }
     
+    // MARK: Helper Methods
     private func setUp(){
         // Set DataSource and Delegate
         flashCardsView.collectionView.dataSource = self
@@ -58,6 +61,7 @@ class CardsController: UIViewController {
 
 }
 
+// MARK: UICollectionViewDataSource Methods
 extension CardsController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flashcardArr.count
@@ -74,6 +78,7 @@ extension CardsController: UICollectionViewDataSource{
     }
 }
 
+// MARK: UICollectionViewDelegate Methods
 extension CardsController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.size.width * 0.8, height: UIScreen.main.bounds.size.height * 0.6)
@@ -84,6 +89,7 @@ extension CardsController: UICollectionViewDelegateFlowLayout{
     }
 }
 
+// MARK: SearchBar Delegate Methods
 extension CardsController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         do {
@@ -98,6 +104,7 @@ extension CardsController: UISearchBarDelegate{
     }
 }
 
+// MARK: FlashCardCellDelegate Methods
 extension CardsController: FlashCardCellDelegate{
     func optionsButtonPressed(_ cardCell: FlashCardCell) {
         let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)

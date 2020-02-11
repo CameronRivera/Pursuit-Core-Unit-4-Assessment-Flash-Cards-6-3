@@ -10,6 +10,7 @@ import UIKit
 
 class AddNewCardView: UIView {
 
+    // MARK: Properties
     public lazy var leftBarButton: UIBarButtonItem = {
         let bbi = UIBarButtonItem()
         bbi.title = "Clear"
@@ -43,6 +44,7 @@ class AddNewCardView: UIView {
         return tv
     }()
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -59,6 +61,7 @@ class AddNewCardView: UIView {
         setUpLowerTextViewConstraints()
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpTextFieldConstraints(){
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false

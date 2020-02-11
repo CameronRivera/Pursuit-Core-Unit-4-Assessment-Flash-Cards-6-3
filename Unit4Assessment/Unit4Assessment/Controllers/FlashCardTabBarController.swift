@@ -11,6 +11,7 @@ import DataPersistence
 
 class FlashCardTabBarController: UITabBarController {
 
+    // MARK: Properties
     private var dataPersistence = DataPersistence<FlashCard>(filename: "savedFlashcards.plist")
     
     public lazy var FlashCardsController: CardsController = {
@@ -34,6 +35,7 @@ class FlashCardTabBarController: UITabBarController {
         return vc
     }()
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         viewControllers = [UINavigationController(rootViewController: FlashCardsController), UINavigationController(rootViewController: CreateFlashCardsController), UINavigationController(rootViewController: SearchOnlineController)]

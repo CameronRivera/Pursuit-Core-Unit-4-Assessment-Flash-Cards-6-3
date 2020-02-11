@@ -10,6 +10,7 @@ import UIKit
 
 class SearchCardsView: UIView {
     
+    // MARK: Properties
     public lazy var collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -18,6 +19,7 @@ class SearchCardsView: UIView {
         return collectionView
     }()
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -32,6 +34,7 @@ class SearchCardsView: UIView {
         setUpCollectionViewConstraints()
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpCollectionViewConstraints(){
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

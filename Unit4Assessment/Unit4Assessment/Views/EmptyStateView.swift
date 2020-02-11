@@ -10,6 +10,7 @@ import UIKit
 
 class EmptyStateView: UIView {
 
+    // MARK: Properties
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -26,6 +27,7 @@ class EmptyStateView: UIView {
         return label
     }()
 
+    // MARK: Initializers
     init(title: String, message: String){
         super.init(frame: UIScreen.main.bounds)
         titleLabel.text = title
@@ -43,6 +45,7 @@ class EmptyStateView: UIView {
         setUpTitleLabelConstraints()
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpMessageLabelConstraints(){
         addSubview(messageLabel)
         messageLabel.translatesAutoresizingMaskIntoConstraints = false

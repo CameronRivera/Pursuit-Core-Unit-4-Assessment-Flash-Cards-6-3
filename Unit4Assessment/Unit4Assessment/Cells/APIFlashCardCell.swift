@@ -14,6 +14,7 @@ protocol APIFlashCardCellDelegate: AnyObject{
 
 class APIFlashCardCell: UICollectionViewCell {
     
+    // MARK: Properties
     public weak var delegate: APIFlashCardCellDelegate?
     public var currentCard: FlashCard!
     private var isTextViewShowing = false
@@ -49,6 +50,7 @@ class APIFlashCardCell: UICollectionViewCell {
         return lp
     }()
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -66,6 +68,7 @@ class APIFlashCardCell: UICollectionViewCell {
         addGestureRecognizer(longPress)
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpAddButtonConstraints(){
         addSubview(addButton)
         addButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +87,7 @@ class APIFlashCardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([factsView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8), factsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8), factsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), factsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)])
     }
     
+    // MARK: Other Methods
     @objc
     private func addButtonPressed(_ sender: UIButton) {
         delegate?.addButtonPressed(self)

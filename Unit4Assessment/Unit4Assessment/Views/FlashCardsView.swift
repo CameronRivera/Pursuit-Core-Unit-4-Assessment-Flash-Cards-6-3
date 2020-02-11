@@ -10,6 +10,7 @@ import UIKit
 
 class FlashCardsView: UIView {
 
+    // MARK: Properties
     public lazy var collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -24,6 +25,7 @@ class FlashCardsView: UIView {
         return searchBar
     }()
     
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -39,6 +41,7 @@ class FlashCardsView: UIView {
         setUpCollectionViewConstraints()
     }
     
+    // MARK: Constraint Setup Methods
     private func setUpSearchBarConstraints(){
         addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false

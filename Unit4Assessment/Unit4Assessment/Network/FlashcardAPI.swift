@@ -10,6 +10,7 @@ import Foundation
 import NetworkHelper
 
 struct FlashcardAPI{
+    // Retrive Flashcards from the endPoint provided
     static func getFlashcards(completion: @escaping (Result<[FlashCard],AppError>) -> ()){
         let endpointString = "https://5daf8b36f2946f001481d81c.mockapi.io/api/v2/cards"
         
@@ -34,6 +35,7 @@ struct FlashcardAPI{
         }
     }
     
+    // Retrieve Flashcards from local json data.
     static func getFlashcardsLocally() -> [FlashCard]{
         var cards: [FlashCard] = []
         guard let path = Bundle.main.path(forResource: "FlashCardData", ofType: "json") else {
