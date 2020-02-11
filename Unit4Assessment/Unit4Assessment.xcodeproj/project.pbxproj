@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,13 @@
 		C47689E823F3007C001E536C /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689E723F3007C001E536C /* CreateController.swift */; };
 		C47689EA23F300C6001E536C /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689E923F300C6001E536C /* CardsController.swift */; };
 		C47689EC23F300DA001E536C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689EB23F300DA001E536C /* SearchController.swift */; };
+		C47689EF23F30335001E536C /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = C47689EE23F30335001E536C /* DataPersistence */; };
+		C47689F223F3034E001E536C /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C47689F123F3034E001E536C /* ImageKit */; };
+		C47689F623F30415001E536C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689F523F30415001E536C /* EmptyStateView.swift */; };
+		C47689F823F30428001E536C /* FlashCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689F723F30428001E536C /* FlashCardsView.swift */; };
+		C47689FA23F30437001E536C /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689F923F30437001E536C /* AddNewCardView.swift */; };
+		C47689FC23F30448001E536C /* SearchCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FB23F30448001E536C /* SearchCardsView.swift */; };
+		C47689FE23F3059A001E536C /* FlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FD23F3059A001E536C /* FlashCardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,11 @@
 		C47689E723F3007C001E536C /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		C47689E923F300C6001E536C /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
 		C47689EB23F300DA001E536C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		C47689F523F30415001E536C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		C47689F723F30428001E536C /* FlashCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardsView.swift; sourceTree = "<group>"; };
+		C47689F923F30437001E536C /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
+		C47689FB23F30448001E536C /* SearchCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardsView.swift; sourceTree = "<group>"; };
+		C47689FD23F3059A001E536C /* FlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47689EF23F30335001E536C /* DataPersistence in Frameworks */,
+				C47689F223F3034E001E536C /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +97,8 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				C47689F423F30374001E536C /* Cells */,
+				C47689F323F3036E001E536C /* Views */,
 				C47689E423F2FE84001E536C /* Controllers */,
 				C47689E323F2FE6E001E536C /* Supporting Files */,
 				579023A523F2EE3B000AA216 /* Info.plist */,
@@ -121,6 +137,25 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		C47689F323F3036E001E536C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C47689F523F30415001E536C /* EmptyStateView.swift */,
+				C47689F723F30428001E536C /* FlashCardsView.swift */,
+				C47689F923F30437001E536C /* AddNewCardView.swift */,
+				C47689FB23F30448001E536C /* SearchCardsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C47689F423F30374001E536C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C47689FD23F3059A001E536C /* FlashCardCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +172,10 @@
 			dependencies = (
 			);
 			name = Unit4Assessment;
+			packageProductDependencies = (
+				C47689EE23F30335001E536C /* DataPersistence */,
+				C47689F123F3034E001E536C /* ImageKit */,
+			);
 			productName = Unit4Assessment;
 			productReference = 5790239423F2EE39000AA216 /* Unit4Assessment.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +226,10 @@
 				Base,
 			);
 			mainGroup = 5790238B23F2EE39000AA216;
+			packageReferences = (
+				C47689ED23F30335001E536C /* XCRemoteSwiftPackageReference "DataPersistence" */,
+				C47689F023F3034E001E536C /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 5790239523F2EE39000AA216 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,11 +265,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47689E823F3007C001E536C /* CreateController.swift in Sources */,
+				C47689FE23F3059A001E536C /* FlashCardCell.swift in Sources */,
 				C47689EC23F300DA001E536C /* SearchController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				C47689E623F2FEAE001E536C /* FlashCardTabBarController.swift in Sources */,
 				C47689EA23F300C6001E536C /* CardsController.swift in Sources */,
+				C47689F823F30428001E536C /* FlashCardsView.swift in Sources */,
+				C47689FC23F30448001E536C /* SearchCardsView.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				C47689F623F30415001E536C /* EmptyStateView.swift in Sources */,
+				C47689FA23F30437001E536C /* AddNewCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +535,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C47689ED23F30335001E536C /* XCRemoteSwiftPackageReference "DataPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/DataPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		C47689F023F3034E001E536C /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C47689EE23F30335001E536C /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47689ED23F30335001E536C /* XCRemoteSwiftPackageReference "DataPersistence" */;
+			productName = DataPersistence;
+		};
+		C47689F123F3034E001E536C /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47689F023F3034E001E536C /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5790238C23F2EE39000AA216 /* Project object */;
 }
