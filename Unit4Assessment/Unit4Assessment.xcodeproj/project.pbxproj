@@ -24,6 +24,10 @@
 		C47689FC23F30448001E536C /* SearchCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FB23F30448001E536C /* SearchCardsView.swift */; };
 		C47689FE23F3059A001E536C /* FlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FD23F3059A001E536C /* FlashCardCell.swift */; };
 		C4768A0123F314B8001E536C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */; };
+		C4768A0423F32B99001E536C /* FlashCardData.json in Resources */ = {isa = PBXBuildFile; fileRef = C4768A0323F32B99001E536C /* FlashCardData.json */; };
+		C4768A0723F32D0E001E536C /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4768A0623F32D0E001E536C /* FlashCard.swift */; };
+		C4768A0B23F32E6B001E536C /* FlashcardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4768A0A23F32E6B001E536C /* FlashcardAPI.swift */; };
+		C4768A0D23F3351E001E536C /* APIFlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4768A0C23F3351E001E536C /* APIFlashCardCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		C47689FB23F30448001E536C /* SearchCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardsView.swift; sourceTree = "<group>"; };
 		C47689FD23F3059A001E536C /* FlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardCell.swift; sourceTree = "<group>"; };
 		C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		C4768A0323F32B99001E536C /* FlashCardData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FlashCardData.json; sourceTree = "<group>"; };
+		C4768A0623F32D0E001E536C /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
+		C4768A0A23F32E6B001E536C /* FlashcardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardAPI.swift; sourceTree = "<group>"; };
+		C4768A0C23F3351E001E536C /* APIFlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFlashCardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,9 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				C4768A0923F32E53001E536C /* Network */,
+				C4768A0523F32D00001E536C /* Model */,
+				C4768A0223F32B6F001E536C /* ModelData */,
 				C47689FF23F3149F001E536C /* Extensions */,
 				C47689F423F30374001E536C /* Cells */,
 				C47689F323F3036E001E536C /* Views */,
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				C47689FD23F3059A001E536C /* FlashCardCell.swift */,
+				C4768A0C23F3351E001E536C /* APIFlashCardCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -165,6 +177,30 @@
 				C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C4768A0223F32B6F001E536C /* ModelData */ = {
+			isa = PBXGroup;
+			children = (
+				C4768A0323F32B99001E536C /* FlashCardData.json */,
+			);
+			path = ModelData;
+			sourceTree = "<group>";
+		};
+		C4768A0523F32D00001E536C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4768A0623F32D0E001E536C /* FlashCard.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4768A0923F32E53001E536C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C4768A0A23F32E6B001E536C /* FlashcardAPI.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +294,7 @@
 			files = (
 				579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */,
 				579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */,
+				C4768A0423F32B99001E536C /* FlashCardData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +319,12 @@
 				C4768A0123F314B8001E536C /* UIViewController+Extensions.swift in Sources */,
 				C47689E623F2FEAE001E536C /* FlashCardTabBarController.swift in Sources */,
 				C47689EA23F300C6001E536C /* CardsController.swift in Sources */,
+				C4768A0B23F32E6B001E536C /* FlashcardAPI.swift in Sources */,
+				C4768A0723F32D0E001E536C /* FlashCard.swift in Sources */,
 				C47689F823F30428001E536C /* FlashCardsView.swift in Sources */,
 				C47689FC23F30448001E536C /* SearchCardsView.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				C4768A0D23F3351E001E536C /* APIFlashCardCell.swift in Sources */,
 				C47689F623F30415001E536C /* EmptyStateView.swift in Sources */,
 				C47689FA23F30437001E536C /* AddNewCardView.swift in Sources */,
 			);

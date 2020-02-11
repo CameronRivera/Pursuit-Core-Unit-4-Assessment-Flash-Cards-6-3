@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import DataPersistence
 
 class CardsController: UIViewController {
 
     private var flashCardsView = FlashCardsView()
+    public var dataPersistence: DataPersistence<FlashCard>!
     
     override func loadView() {
         view = flashCardsView
@@ -18,6 +20,7 @@ class CardsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         navigationItem.title = "Flash Cards"
         setUp()
     }

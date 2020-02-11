@@ -12,7 +12,7 @@ class AddNewCardView: UIView {
 
     public lazy var leftBarButton: UIBarButtonItem = {
         let bbi = UIBarButtonItem()
-        bbi.title = "Cancel"
+        bbi.title = "Clear"
         return bbi
     }()
     
@@ -31,11 +31,13 @@ class AddNewCardView: UIView {
     
     public lazy var upperTextView: UITextView = {
         let tv = UITextView()
+        tv.text = "Enter a fact here"
         return tv
     }()
     
     public lazy var lowerTextView: UITextView = {
         let tv = UITextView()
+        tv.text = "Enter a fact here"
         return tv
     }()
     
