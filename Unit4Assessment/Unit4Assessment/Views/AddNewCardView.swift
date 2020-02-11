@@ -32,12 +32,14 @@ class AddNewCardView: UIView {
     public lazy var upperTextView: UITextView = {
         let tv = UITextView()
         tv.text = "Enter a fact here"
+        tv.font = UIFont(name: "Avenir", size: 17)
         return tv
     }()
     
     public lazy var lowerTextView: UITextView = {
         let tv = UITextView()
         tv.text = "Enter a fact here"
+        tv.font = UIFont(name: "Avenir", size: 17)
         return tv
     }()
     

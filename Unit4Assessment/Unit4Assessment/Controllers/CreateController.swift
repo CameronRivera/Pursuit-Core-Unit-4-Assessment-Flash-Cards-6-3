@@ -102,6 +102,8 @@ class CreateController: UIViewController {
                 } catch {
                     print("Error persisting custom card: \(error)")
                 }
+            } else {
+                showAlert("Hmm...", "It would seem this flashcard is already contained within your archive.")
             }
         }
     }

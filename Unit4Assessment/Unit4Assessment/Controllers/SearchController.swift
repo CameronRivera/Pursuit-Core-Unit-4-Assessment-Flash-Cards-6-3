@@ -75,13 +75,15 @@ extension SearchController: UICollectionViewDelegateFlowLayout{
 
 extension SearchController: APIFlashCardCellDelegate{
     func addButtonPressed(_ apiCell: APIFlashCardCell) {
-        showAlert("Flash card Saved", "Flash card: \"\(apiCell.questionLabel.text!)\" was added to your saved cards.")
         if !dataPersistence.hasItemBeenSaved(apiCell.currentCard){
             do {
                 try dataPersistence.createItem(apiCell.currentCard)
+                showAlert("Flash card Saved", "Flash card: \"\(apiCell.questionLabel.text!)\" was added to your saved cards.")
             } catch {
                 showAlert("Error saving API FlashCard", "\(error)")
             }
+        } else {
+            showAlert("Hmm...", "It would seem this flashcard is already saved in your archive")
         }
     }
 }

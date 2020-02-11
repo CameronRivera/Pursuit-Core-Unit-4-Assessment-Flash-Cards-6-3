@@ -15,6 +15,11 @@ class CardsController: UIViewController {
     private var flashcardArr: [FlashCard] = []{
         didSet{
             flashCardsView.collectionView.reloadData()
+            if flashcardArr.isEmpty{
+                flashCardsView.collectionView.backgroundView = EmptyStateView(title: "There are currently no cards saved in your archive", message: "Head over to the search tab to add some ready made ones, or check out the create tab to create your own.")
+            } else {
+                flashCardsView.collectionView.backgroundView = nil
+            }
         }
     }
     public var dataPersistence: DataPersistence<FlashCard>!
@@ -46,6 +51,9 @@ class CardsController: UIViewController {
         
         // Register Cell
         flashCardsView.collectionView.register(FlashCardCell.self, forCellWithReuseIdentifier: "flashCardCell")
+        
+        // Set searchBar delegate
+        flashCardsView.searchBar.delegate = self
     }
 
 }
@@ -73,6 +81,20 @@ extension CardsController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+}
+
+extension CardsController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        do {
+            if searchText == ""{
+                flashcardArr = try dataPersistence.loadItems()
+            } else {
+                flashcardArr = try dataPersistence.loadItems().filter{$0.quizTitle.lowercased().contains(searchText.lowercased())}
+            }
+        } catch {
+            print("Error loading cards: \(error)")
+        }
     }
 }
 
