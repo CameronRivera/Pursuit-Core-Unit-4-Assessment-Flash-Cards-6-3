@@ -75,7 +75,7 @@ class APIFlashCardCell: UICollectionViewCell {
     private func setUpQuestionLabelConstraints(){
         addSubview(questionLabel)
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([questionLabel.centerYAnchor.constraint(equalTo: centerYAnchor), questionLabel.centerXAnchor.constraint(equalTo: centerXAnchor), questionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), questionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)])
+        NSLayoutConstraint.activate([questionLabel.centerYAnchor.constraint(equalTo: centerYAnchor), questionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), questionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)])
     }
     
     private func setUpFactsViewConstraints(){
@@ -117,6 +117,9 @@ class APIFlashCardCell: UICollectionViewCell {
     public func configureCell(_ card: FlashCard){
         questionLabel.text = card.quizTitle
         factsView.text = card.facts.reduce("", { (result, string) -> String in
+            if result == ""{
+                return result + string
+            }
             return result + " " + string
         })
         currentCard = card

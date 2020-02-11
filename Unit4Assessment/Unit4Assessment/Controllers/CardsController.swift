@@ -12,6 +12,11 @@ import DataPersistence
 class CardsController: UIViewController {
 
     private var flashCardsView = FlashCardsView()
+    private var flashcardArr: [FlashCard] = []{
+        didSet{
+            flashCardsView.collectionView.reloadData()
+        }
+    }
     public var dataPersistence: DataPersistence<FlashCard>!
     
     override func loadView() {
@@ -23,6 +28,15 @@ class CardsController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Flash Cards"
         setUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        do{
+            flashcardArr = try dataPersistence.loadItems()
+        } catch {
+            print("Error loading persisted data: \(error)")
+        }
     }
     
     private func setUp(){
@@ -38,7 +52,7 @@ class CardsController: UIViewController {
 
 extension CardsController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return flashcardArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,6 +61,7 @@ extension CardsController: UICollectionViewDataSource{
         }
         xCell.backgroundColor = .cyan
         xCell.delegate = self
+        xCell.configureCell(flashcardArr[indexPath.row], indexPath.row)
         return xCell
     }
 }
@@ -65,8 +80,13 @@ extension CardsController: FlashCardCellDelegate{
     func optionsButtonPressed(_ cardCell: FlashCardCell) {
         let alertController = UIAlertController(title: "What would you like to do?", message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
-            // Some Code to delete the cell from the collectionView and the dataPersistence must go here.
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
+            do {
+                try self?.dataPersistence.deleteItem(at: cardCell.myIndex)
+                self?.flashcardArr.remove(at: cardCell.myIndex)
+            } catch {
+                print("Error removing item from saved items: \(error)")
+            }
         }
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)

@@ -92,8 +92,26 @@ class CreateController: UIViewController {
             addNewCardView.lowerTextView.layer.borderColor = UIColor.red.cgColor
         } else {
             // Persist Data
-            //let newFlashcard = FlashCard(id: "", quizTitle: addNewCardView., facts: <#T##[String]#>)
+            let newFlashcard = FlashCard(id: "", quizTitle: addNewCardView.textField.text ?? "", facts: [addNewCardView.upperTextView.text, addNewCardView.lowerTextView.text])
+            
+            if !dataPersistence.hasItemBeenSaved(newFlashcard){
+                do{
+                    try dataPersistence.createItem(newFlashcard)
+                    showAlert("Success", "New card: \(addNewCardView.textField.text ?? "") has been added to your saved flash cards.")
+                    resetToDefault()
+                } catch {
+                    print("Error persisting custom card: \(error)")
+                }
+            }
         }
+    }
+    
+    private func resetToDefault(){
+        addNewCardView.textField.text = ""
+        addNewCardView.upperTextView.text = "Enter a fact here."
+        addNewCardView.lowerTextView.text = "Enter a fact here."
+        upperTextDidChange = false
+        lowerTextDidChange = false
     }
     
     private func textFieldIsEmpty() -> Bool{
@@ -101,11 +119,12 @@ class CreateController: UIViewController {
     }
     
     private func upperTextViewIsEmpty() -> Bool{
-        return addNewCardView.upperTextView.text == "" || addNewCardView.upperTextView.text == " "
+        return addNewCardView.upperTextView.text == "" || addNewCardView.upperTextView.text == " " || addNewCardView.upperTextView.text == "Enter a fact here"
     }
     
     private func lowerTextViewIsEmpty() -> Bool{
-        return addNewCardView.lowerTextView.text == "" || addNewCardView.lowerTextView.text == " "
+        return addNewCardView.lowerTextView.text == "" || addNewCardView.lowerTextView.text == " " ||
+            addNewCardView.lowerTextView.text == "Enter a fact here"
     }
 }
 

@@ -15,6 +15,7 @@ protocol FlashCardCellDelegate: AnyObject{
 class FlashCardCell: UICollectionViewCell {
     
     public weak var delegate: FlashCardCellDelegate?
+    public var myIndex: Int = -1
     
     public lazy var optionsButton: UIButton = {
        let button = UIButton()
@@ -78,7 +79,7 @@ class FlashCardCell: UICollectionViewCell {
     private func setUpQuestionLabelConstraints(){
         addSubview(questionLabel)
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([questionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor), questionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), questionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8), questionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)])
+        NSLayoutConstraint.activate([questionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor), questionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8), questionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)])
     }
     
     private func setUpFactsViewConstraints(){
@@ -118,9 +119,13 @@ class FlashCardCell: UICollectionViewCell {
         textFieldIsShowing.toggle()
     }
     
-    public func configureCell(_ card: FlashCard){
+    public func configureCell(_ card: FlashCard, _ index: Int){
+        myIndex = index
         questionLabel.text = card.quizTitle
         factsView.text = card.facts.reduce("", { (result, string) -> String in
+            if result == ""{
+                return result + string
+            }
             return result + " " + string
         })
     }
