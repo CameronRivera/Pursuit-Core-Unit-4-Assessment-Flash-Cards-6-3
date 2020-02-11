@@ -23,6 +23,7 @@
 		C47689FA23F30437001E536C /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689F923F30437001E536C /* AddNewCardView.swift */; };
 		C47689FC23F30448001E536C /* SearchCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FB23F30448001E536C /* SearchCardsView.swift */; };
 		C47689FE23F3059A001E536C /* FlashCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47689FD23F3059A001E536C /* FlashCardCell.swift */; };
+		C4768A0123F314B8001E536C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C47689F923F30437001E536C /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
 		C47689FB23F30448001E536C /* SearchCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardsView.swift; sourceTree = "<group>"; };
 		C47689FD23F3059A001E536C /* FlashCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardCell.swift; sourceTree = "<group>"; };
+		C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				C47689FF23F3149F001E536C /* Extensions */,
 				C47689F423F30374001E536C /* Cells */,
 				C47689F323F3036E001E536C /* Views */,
 				C47689E423F2FE84001E536C /* Controllers */,
@@ -154,6 +157,14 @@
 				C47689FD23F3059A001E536C /* FlashCardCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C47689FF23F3149F001E536C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C4768A0023F314B8001E536C /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				C47689FE23F3059A001E536C /* FlashCardCell.swift in Sources */,
 				C47689EC23F300DA001E536C /* SearchController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
+				C4768A0123F314B8001E536C /* UIViewController+Extensions.swift in Sources */,
 				C47689E623F2FEAE001E536C /* FlashCardTabBarController.swift in Sources */,
 				C47689EA23F300C6001E536C /* CardsController.swift in Sources */,
 				C47689F823F30428001E536C /* FlashCardsView.swift in Sources */,
